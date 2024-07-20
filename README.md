@@ -18,7 +18,7 @@ Our concept utilizes an eco-friendly approach due to the fact that Libelium Wasp
 ## Hardware, Software and Protocols
 This project, combines concepts and technologies from physical layer such ar esp32, software layers such as Python, CSS and middle layer such as mosquitto protocol. Hardware, software and protocols are merged up together to create a web service in which the live state and the sensors metrics are being displayed. It is a 4-tier architecture.Specifically, our project includes these technologies per layer:
 
-[![My Skills](https://skillicons.dev/icons?i=arduino,cpp,raspberrypi,linux,py,flask,js,html,github&perline=9)](https://skillicons.dev)
+<img src="./Images/libel.png" alt="Libelium" width="50"/> [![My Skills](https://skillicons.dev/icons?i=cpp,raspberrypi,linux,py,flask,js,html,github&perline=9)](https://skillicons.dev)
 
 - Hardware: ESP 32 board, Raspberry Pi 3 Model B+, Current sensors x 2
 - Software: Python 3.10, CSS, HTML, JavaScript, CPP firmware
