@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="stylesheet" href="Map_files/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="Map_files/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        #map {
+            height: 550px;
+        }
+    </style>
+
+
+
+<style>
+.fortipam-fade-in {
+  opacity: 0;
+  animation: fortipam-fade-in-animation 0.15s ease-in forwards;
+}
+
+@keyframes fortipam-fade-in-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}</style>
+
+
+
+
+</head>
+<body>
+    <div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" style="position: relative;" tabindex="0"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="Map_files/98.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(314px, 38px, 0px); opacity: 1;"><img alt="" src="Map_files/98_006.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(570px, 38px, 0px); opacity: 1;"><img alt="" src="Map_files/97_004.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(314px, -218px, 0px); opacity: 1;"><img alt="" src="Map_files/97_002.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(570px, -218px, 0px); opacity: 1;"><img alt="" src="Map_files/99_005.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(314px, 294px, 0px); opacity: 1;"><img alt="" src="Map_files/99_006.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(570px, 294px, 0px); opacity: 1;"><img alt="" src="Map_files/98_003.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(58px, 38px, 0px); opacity: 1;"><img alt="" src="Map_files/98_002.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(826px, 38px, 0px); opacity: 1;"><img alt="" src="Map_files/97_005.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(58px, -218px, 0px); opacity: 1;"><img alt="" src="Map_files/97_006.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(826px, -218px, 0px); opacity: 1;"><img alt="" src="Map_files/99_002.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(58px, 294px, 0px); opacity: 1;"><img alt="" src="Map_files/99_004.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(826px, 294px, 0px); opacity: 1;"><img alt="" src="Map_files/98_005.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-198px, 38px, 0px); opacity: 1;"><img alt="" src="Map_files/98_004.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1082px, 38px, 0px); opacity: 1;"><img alt="" src="Map_files/97.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-198px, -218px, 0px); opacity: 1;"><img alt="" src="Map_files/97_003.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1082px, -218px, 0px); opacity: 1;"><img alt="" src="Map_files/99.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-198px, 294px, 0px); opacity: 1;"><img alt="" src="Map_files/99_003.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1082px, 294px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"><svg pointer-events="none" class="leaflet-zoom-animated" width="1363" height="660" style="transform: translate3d(-114px, -55px, 0px);" viewBox="-114 -55 1363 660"><g><path class="leaflet-interactive" stroke="red" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#f03" fill-opacity="0.5" fill-rule="evenodd" d="M566.84313742222,275.4123293644843a1,1 0 1,0 2,0 a1,1 0 1,0 -2,0 "></path></g></svg></div><div class="leaflet-pane leaflet-shadow-pane"><img src="Map_files/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(568px, 275px, 0px);" alt=""></div><div class="leaflet-pane leaflet-marker-pane"><img src="Map_files/marker-icon-2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(568px, 275px, 0px); z-index: 275;" alt="Marker" tabindex="0" role="button"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"><div class="leaflet-popup  leaflet-zoom-animated" style="opacity: 1; transform: translate3d(569px, 241px, 0px); bottom: -7px; left: -53px;"><div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 60px;"><a href="https://www.w3schools.com/html/html_links.asp">Μετρήσεις</a></div></div><div class="leaflet-popup-tip-container"><div class="leaflet-popup-tip"></div></div><a class="leaflet-popup-close-button" role="button" aria-label="Close popup" href="#close"><span aria-hidden="true">×</span></a></div></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(37629.8px, 25325.4px, 0px) scale(128);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"><div class="leaflet-control-layers leaflet-control" aria-haspopup="true"><a class="leaflet-control-layers-toggle" href="#" title="Layers" role="button"></a><section class="leaflet-control-layers-list"><div class="leaflet-control-layers-base"><label><span><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_71"><span> Street</span></span></label><label><span><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_71"><span> Satellite</span></span></label></div><div class="leaflet-control-layers-separator" style="display: none;"></div><div class="leaflet-control-layers-overlays"></div></section></div></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com/" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a></div></div></div></div>
+
+<script>
+    var map = L.map('map').setView([37.799314, 26.706902], 8);
+
+    var street = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoibWthcmF2b2xvcyIsImEiOiJja2NhcXo0cmExaGtwMzNueG93cDU5NjQwIn0.BQ63ruv0ioavALBofATVQg'
+    });
+
+    var satellite = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/satellite-v9',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoibWthcmF2b2xvcyIsImEiOiJja2NhcXo0cmExaGtwMzNueG93cDU5NjQwIn0.BQ63ruv0ioavALBofATVQg'
+    });
+
+    Icon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+
+    L.marker([37.799314, 26.706902]).addTo(map).bindPopup('<a href="https://www.w3schools.com/html/html_links.asp">Μετρήσεις</a>')
+        .openPopup();
+		
+		
+	L.circle([37.799314, 26.706902], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 20
+}).addTo(map);
+
+        var baseMaps = {
+            "Street": street,
+            "Satellite": satellite
+        };
+    
+        L.control.layers(baseMaps, null).addTo(map);
+</script>
+</body></html>

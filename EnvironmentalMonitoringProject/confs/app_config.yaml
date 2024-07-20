@@ -1,0 +1,22 @@
+data_source:
+  postgeqsql:
+    host: 'localhost'
+    port: 5432
+    dbname: 'postgres'
+    dbuser: 'iot_postgres'
+    password: 'smi21'
+  mysql:
+    host: 'localhost'
+    port: 4444
+    dbname: 'user'
+    dbuser: 'user'
+    password: '12'
+web_info:
+  flask:
+    port: 8021
+email:
+  sender:
+    email_s: 'samoswachsystem@gmail.com'
+    email_s_pass: 'qymmmxeqchdhykku'
+    description_s: 'Enable Google Email App Security Pin first'
+
