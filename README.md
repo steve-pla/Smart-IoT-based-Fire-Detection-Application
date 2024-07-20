@@ -1,20 +1,22 @@
 # Smart-IoT-based-Fire-Detection-Application
 
-An IoT-based fire detection system usibng high-precision sensors, utilizing LoRa for fast transmisison, storing and providing data distibution using The Things Network
+Our Smart IoT-based Fire Detection System is an innovative solution designed to enhance fire safety through advanced sensor technology and real-time data analytics. Utilizing high-precision sensors, LoRa communication, and powerful data visualization tools, our system offers reliable and timely detection of potential fire hazards. The system integrates Libelium sensor boards, a Raspberry Pi gateway, The Things Network (TTN), and PostgreSQL databases. High-precision sensors measure environmental factors such as CO2, humidity, O2, and NO2 levels. Data is transmitted over long distances using LoRa technology and processed through TTN, with all sensor data stored in a PostgreSQL database. Our custom Python services fetch this data, enabling comprehensive metric visualization and live-stream user interfaces. Users can securely log in to the web dashboard to monitor real-time metrics, view historical data trends, and receive threshold-based alerts for potential fire events. 
+
+This robust and scalable system provides an essential tool for early fire detection, helping to prevent disasters and protect lives and property. Whether for individual users or public administration, our fire detection system leverages cutting-edge technology to deliver superior performance and peace of mind.
 
 ## All-in-One
-Our concept utilizes an eco-friendly approach due to the fact that esp32 is an ultra-low IoT power device opening the horizon for sustainability and low-cost solutions.
+Our concept utilizes an eco-friendly approach due to the fact that Libelium Waspmote is an ultra-low IoT power device opening the horizon for sustainability and low-cost solutions.
 - Eco-friendly approach
-- <img src="https://cdn-icons-png.flaticon.com/512/3412/3412024.png" alt="Icon" width="38">        Promoting sustainability both in terms of technological equipment as well as in wash machines longer lifecycle through predictive analysis
-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-dAmrgSb6vVoVB5cOkw3xCamnZhhOHnCsb9RUqfoeqIusSpZ1vUM9A02MSGlQnA-3AD4&usqp=CAU" alt="Icon" width="43">        Open-source project for everyone! - **Always there is space for improvement!**
+- <img src="https://cdn-icons-png.flaticon.com/512/3412/3412024.png" alt="Icon" width="38"> Promoting sustainability both in terms of technological equipment
+- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-dAmrgSb6vVoVB5cOkw3xCamnZhhOHnCsb9RUqfoeqIusSpZ1vUM9A02MSGlQnA-3AD4&usqp=CAU" alt="Icon" width="43"> Open-source project for everyone! - **Always there is space for improvement!**
 - Low-cost solution
-- Scalable - **With just more Ampere Sensors, you have the desired results**
+- Scalable - **With just more Sensors or Libeliums, you have the sensors network you want!**
 - Upgradable - **Any part can be upgraded**
-- Agnostic-vendor - **It can play in any environment and in any wash machine vendor**
+- Agnostic-vendor - **It can play in any environment and in any geographical area of interest**
 
 
 ## Hardware, Software and Protocols
-This project, combines concepts and technologies from physical layer such ar esp32, software layers such as Python, CSS and middle layer such as mosquitto protocol. Hardware, software and protocols are merged up together to create a web service in which the live state of the wach machines is being displayed. It is a 4-tier architecture.Specifically, our project includes these technologies per layer:
+This project, combines concepts and technologies from physical layer such ar esp32, software layers such as Python, CSS and middle layer such as mosquitto protocol. Hardware, software and protocols are merged up together to create a web service in which the live state and the sensors metrics are being displayed. It is a 4-tier architecture.Specifically, our project includes these technologies per layer:
 
 [![My Skills](https://skillicons.dev/icons?i=arduino,cpp,raspberrypi,linux,py,flask,js,html,github&perline=9)](https://skillicons.dev)
 
