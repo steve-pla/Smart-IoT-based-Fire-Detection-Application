@@ -16,38 +16,35 @@ Our concept utilizes an eco-friendly approach due to the fact that Libelium Wasp
 
 
 ## Hardware, Software and Protocols
-This project, combines concepts and technologies from physical layer such ar esp32, software layers such as Python, CSS and middle layer such as mosquitto protocol. Hardware, software and protocols are merged up together to create a web service in which the live state and the sensors metrics are being displayed. It is a 4-tier architecture.Specifically, our project includes these technologies per layer:
+This project, combines concepts and technologies from physical layer such ar esp32, software layers such as Python, CSS and middle layer such as mosquitto protocol. Hardware, software and protocols are merged up together to create a web service in which the live state and the sensors metrics are being displayed. It is a 5-tier architecture.Specifically, our project includes these technologies per layer:
 
-<img src="./Images/libel.png" alt="Libelium" width="50"/> <img src="./Images/tnn.webp" alt="tnn" width="50"/> [![My Skills](https://skillicons.dev/icons?i=cpp,raspberrypi,linux,py,flask,js,html,github&perline=9)](https://skillicons.dev)
+<img src="./Images/libel.png" alt="Libelium" width="60"/> <img src="./Images/tnn.webp" alt="tnn" width="70"/> <img src="./Images/lora1.png" alt="tnn" width="80"/> <img src="./Images/mqtt1.png" alt="tnn" width="80"/> [![My Skills](https://skillicons.dev/icons?i=cpp,raspberrypi,linux,py,flask,js,html,postgres,github&perline=9)](https://skillicons.dev)
 
-- Hardware: ESP 32 board, Raspberry Pi 3 Model B+, Current sensors x 2
+- Hardware: Libelium Waspmote board, Raspberry Pi 3 Model B+, O2-NO2-Humidity-CO2 Sensors
 - Software: Python 3.10, CSS, HTML, JavaScript, CPP firmware
-- Middleware: Mosquito Broker, MQTT
+- Middleware: The Things Network, MQTT
 - Web Layer: Flask-MQTT
 
 
 ## Application Architecture
-![Image Description](wash_machines_monitoring_service/flaskr/static/img/arch1.png)
 
-### 1-Tier (Data Producer)
-ESP32-MCU act as a data producer. With the presence of the 030 A Current Sensors, it can sense in real-time the electric current from the 2 wash machines. Then, with the MQTT protocol, it sends this information to the MQTT Broker (raspberry Pi 3) to the specific topics.
+![Live Streaming Plots](Images/topology.png)
 
-### 2-Tier (Broker)
-Raspberry Pi 3 act as a MQTT Broker. It contains the 2 topics. Mosquitto service is active here.
+### 1-Layer (Data Sensing)
+The first layer of our system is data sensing. Using the Libelium Waspmote, we measure environmental parameters such as CO2, NO2, O2, and humidity. The Waspmote encodes these sensor readings through its shield interface and transmits them via a LoRa module to the next layer for further processing.
 
-### 3-Tier (Data Consumer)
-In the same physical Raspberry Pi 3 there is a Python service runss which act as a MQTT Subscriber to these topics in order to implement a control logic regarding the wash machines states.
+### 2-Layer (Data Forwarding)
+The second layer of our IoT-based fire detection system is powered by a Raspberry Pi 3 Model B+. This layer is responsible for receiving sensor data transmitted by the Libelium Waspmote via a LoRa module. Once the Raspberry Pi captures the sensor values, it processes the data using custom scripts executed through Linux bash commands. The processed data is then streamed through the Raspberry Pi's Ethernet port, enabling it to be transmitted over the internet. This data is sent to The Things Network (TTN) service, which acts as the central hub for data aggregation and analysis. This setup ensures reliable and efficient communication between the sensor nodes and the cloud-based network, facilitating real-time monitoring and response to environmental conditions.
 
-### 4-Tier (Web Service)
-In the same Raspberry, the Python service also has double role, thus offering a web service (Flask) accessible via the users browser.
+### 3-Layer (Data Distribution)
+The third layer leverages The Things Network (TTN) service. This layer plays a crucial role in managing and processing the data received from the Raspberry Pi. Upon receiving the sensor data, TTN stores it in the user’s data catalog, ensuring organized and accessible records. TTN also handles the association between the data gateway and the user account, allowing for secure and efficient data management.
 
-### Front-End (Client-Side)
-The Front-End running in the browser side, implements also the control logic, by subscibing to the MQTT topics acting also as a MQTT consumer. Therefore, Back-End is not actually needed except a single GET API in the context of page refreshing.
+### 4-Layer (Data Fetching/Storing)
+The fourth layer is a Python-based service responsible for data retrieval and storage. This service utilizes the MQTT protocol to connect to The Things Network (TTN) API, fetching sensor data from the user catalog every 2 seconds. Once retrieved, the data is processed and inserted into the 'Measurements' table of a PostgreSQL database. This setup ensures that sensor readings are continuously updated in the database, providing a reliable and up-to-date record of environmental conditions.
 
-## Function (time) = Ampere
-In the context of a single cycle wash, ampere values follow this polynomial function
+### 5-Layer (Web Service, back/front-end)
+The fifth and final layer of our system is a Python Flask web service that provides a comprehensive user interface for interacting with the collected data. This layer includes several key features: it offers pages for plotting various metrics, allowing users to visualize and analyze sensor data trends over time; a live-stream values page to monitor real-time sensor readings and user authentication and registration functionalities to manage access and ensure secure interactions with the system. The front-end part resides on the user browser.
 
-![Image Description](wash_machines_monitoring_service/flaskr/static/img/single_wash.png)
 
 # App Execution
 
@@ -59,88 +56,56 @@ the right hardware connected and that you are ready to start!*
 
 | Tools | Description |
 | ---- | -------------------------------------------|
-| [ESP32 MCU](http://esp32.net/) | Cpp firmware execution, data producing|
-| [Raspberry Pi 3 Model B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) | Running Rasbian OS, mosquitto broker service, MongoDB, Python App execution|
-| [SCT-013-030 Non-invasive AC Current Sensor](https://www.cableworks.gr/ilektronika/arduino-and-microcontrollers/mcu-and-components/current-voltage/30a-sct-013-030-non-invasive-ac-current-sensor-for-arduino//) | Sensing Wach machines electric current|
+| [Libelium Waspmote](https://www.libelium.com/iot-products/waspmote/) | Libelium board responsible for data sensing executing CPP firmware|
+| [Raspberry Pi 3 Model B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) | Receiving via LoRa sensors values streaming them via Linux bash and transmiting them to the TTN|
+| [SGX Sensors SGX-4OX, Oxygen Gas Sensor](https://gr.rsdelivers.com/product/sgx-sensors/sgx-4ox/sgx-sensors-sgx-4ox-oxygen-gas-sensor-ic-for-gas/2541602) | O2 Sensor|
+| [SGX-4NO2AMPHENOL SGX SENSORTECH](https://www.tme.eu/en/details/sgx-4no2/gas-sensors/amphenol-sgx-sensortech/) | NO2 Sensor|
     
 ## Application Installation & Execution
 Guidelines in case somebody wants to create this project and develop it in a real environment.
 Want to contribute? Great!
 ### Phase A: Prepare App Environment
 ```sh
-    [ESP32]
-    1. Put the wash machines electric cables into AC Sensors
-    2. Power on the ESP32
-    3. Flash CPP firmware code to ESP32 board
+    [Libelium Waspmote]
+    1. Connect the sensors into the shield
+    2. Power on the Libelium
+    3. Flash CPP firmware code to Waspmote
+    4. Run the firmware code
     --------------------------------------
     [RASBPERRY PI]
     1. Power on Pi and connect to it (eg, SSH) 
-    2. Install mosquitto lib, MongoDB
-    3. Make mosquitto service to autorestart on every system boot (eg, in case of power failure).
-        - Rasbian:  $ sudo systemctl enable --now mosquitto.service
+    2. Connect the LoRa module
+    3. Execute the Linux Shell commands
 ```
 
 ### Phase B: Install Python Libraries - Execute Python App
-    There are 2 scripts for windows (.bat) and Linux (.sh) respectively, that offers installation automation. Only thing that is needed is running one of these scripts. Navigate to python project and: 
 ```sh
-1. ./setup_python_project_linux.sh (first, run this: $ chmod +x setup_python_project_linux.sh)
-2. ./setup_python_project_linux.bat
+1. In the MQTT App, there is the requirements.txt file. You can execute, $: pip install -r <requirements.txt>
+2. In the Environmentam monitoring App, there is the requirements.txt file. You can execute, $: pip install -r <requirements.txt>
 ```
-*At the end of these scripts, the main.py will be executed!*
+*At the end of these scripts, you have to run the main.py in order to execute the application!*
 
-### Phase C: Make Python Service a system service
-```sh
-    1. cd /etc/systemd/system/
-    2. sudo nano wash_app.service
-```
-
-
-Using nano,
-
-```python
-[Unit]
-Description=My Python Project
-After=network.target
-
-[Service]
-ExecStart=/usr/bin/python3 /path/to/main.py
-WorkingDirectory=/path/to/project_directory
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Make sure to replace /path/to/main.py with the actual path to your main.py file and /path/to/project_directory with the actual path to your project directory. Save the file and exit the nano editor (Ctrl+O, Enter, Ctrl+X).
-
-```sh
-    3. sudo systemctl daemon-reload
-    4. sudo systemctl enable wash_app
-    5. sudo systemctl start wash_app
-```
 
 ## UserInterface (UI) Pages
-The front-end part includes the main web page with the different UIs. Two screenshots of the web page are depicted below:
-Main page showing the wash machines. The inner cycle is dynamically rotating each time the machine is starting while it stops when the machine completes the procedure.
-Also, for these operations, a specific sound is played in order to help better the user realize the modes.<br>
-![Image Description](wash_machines_monitoring_service/flaskr/static/img/main_page.png)
+The initial page, includes the authentication process. Also, the functionalities of user register and password forgot are being displayed. After the user authentication giving user email and password, the user can see the menu with the options.<br>
+![User Init Page](Images/ui1.png)
  <br> <br>
  Second page:
-![Image Description](wash_machines_monitoring_service/flaskr/static/img/second_page.png)
+![Live Streaming Plots](Images/ui2.png)
 
 
 # People
-Nikos Rekkas, Vasilis Kartitzoglou and Stefanos Plastras, alumni from University of the Aegean, were involved in the design, implementaion, testing and installation of this project.
-
-## Nikos Rekkas
-- Currently, he is working as software engineer in the private sector. He holds a MEng from the Department of Information and Communication Systems Engineering of University of the Aegean.  
-Email: nrekkas@gmail.com  
-Github: [nikosrk](https://github.com/nikosrk)  
+Stefanos Plastras, alumni from University of the Aegean, and Lefteris Tsipis, were involved in the design, implementaion, testing and installation of this project.
 
 ## Stefanos Plastras
 - Currently, he is doing his PhD studies in wireless networks. He holds a MEng from Dept. of Information and Communication Systems Engineering and a MSc from Athens University of Economics & Business.  
 Email: s.plastras@gmail.com   
-Github: [stevpla](https://github.com/stevpla)
+Github: [stevpla](https://github.com/steve-pla)
+
+## Lefteris Tsipis
+- Currently, he is doing his PhD studies in wireless networks and UAVs. He holds a MEng from Dept. of Information and Communication Systems Engineering and a MSc from the same university.  
+Email: ltsipis@aegean.gr   
+Github: [stevpla](https://github.com/steve-pla)
 
 
 # License
