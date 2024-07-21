@@ -100,12 +100,12 @@ Stefanos Plastras, alumni from University of the Aegean, and Lefteris Tsipis, we
 ## Stefanos Plastras
 - Currently, he is doing his PhD studies in wireless networks. He holds a MEng from Dept. of Information and Communication Systems Engineering and a MSc from Athens University of Economics & Business.  
 Email: s.plastras@gmail.com   
-Github: [stevpla](https://github.com/steve-pla)
+Github: [steve-pla](https://github.com/steve-pla)
 
 ## Lefteris Tsipis
 - Currently, he is doing his PhD studies in wireless networks and UAVs. He holds a MEng from Dept. of Information and Communication Systems Engineering and a MSc from the same university.  
 Email: ltsipis@aegean.gr   
-Github: [stevpla](https://github.com/steve-pla)
+Github: [LefterisTsipis](https://github.com/LefterisTsipis)
 
 
 # License
