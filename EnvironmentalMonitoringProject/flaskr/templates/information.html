@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Environmental Sensing Service - Information</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style_v2.css">
+  </head>
+  <body>
+
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+	  		<h1><a href="/menu" class="logo">Fire Detection Service</a></h1>
+         <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="/menu"><span class="fa fa-home mr-3"></span> Αρχική Σελίδα</a>
+          </li>
+          <li>
+              <a href="/measurements"><span class="fa fa-sticky-note mr-3"></span> Μετρήσεις CO2, O2, Humidity, NO2</a>
+          </li>
+             <li>
+              <a href="/streaming"><span class="fa fa-sticky-note mr-3"></span> Παρακολούθηση σε πραγματικό χρόνο: CO2, O2, Humidity, NO2</a>
+          </li>
+          <li>
+            <a href="/information"><span class="fa fa-paper-plane mr-3"></span> Πληροφορίες Εφαρμογής</a>
+          </li>
+            <li>
+            <a href="/logout"><span class="fa fa-paper-plane mr-3"></span> Αποσύνδεση (Logout)</a>
+          </li>
+        </ul>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Environmental Sensing Service - Υπηρεσία ανίχνευσης φωτιάς σε δασικές περιοχές.</h2>
+          <p><i class="fa fa-folder-open" style="font-size:18px;color:black"></i></i><strong>Προπτυχιακή εργασία στα πλαίσια της διπλωματικής εργασίας με τίτλο : </strong> <em><< Έξυπνο Σύστημα ανίχνευσης Φωτιάς σε Δασικές Περιοχές με Χρήση Υλικού>></em><br></p>
+          <p><i class="fa fa-university" style="font-size:18px;color:black"></i><strong>Πανεπιστήμιο Αιγαίου - Τμήμα Μ.Π.Ε.Σ.: </strong> <a href="https://www.icsd.aegean.gr/">Τμήμα Μηχανικών Πληροφοριακών και Επικοινωνιακών Συστημάτων</a><br><br>
+           <img src="images/icsd.png" style="width:650px;height:95px;"></p><br>
+
+
+          <p><i class="fa fa-book" style="font-size:18px;color:black"></i><strong>Περιγραφή:</strong>Η παρούσα διπλωματική εργασία έχει ως σκοπό να αναζητήσει εκείνα τα τεχνολογικά μέσα και τα υλικά με στόχο τη διασύνδεσή τους για τη δημιουργία ενός συστήματος ανίχνευσης φωτιάς.
+              Τα προτεινόμενα εργαλεία από πλευράς υλικού επικεντρώνονται στη πλατφόρμα IoT, Libelium waspmote, το Raspberry Pi 3. Σε επιπεδο υπηρεσιών, αξιοποιείται η υπηρεσία The Things Network,
+              TNN, η οποία συλλέγει σε πραγματικό χρόνο τα δεδομένα όπως οξυγόνο, υγρασία, διοξείδιο του άνθρακα και τα στέλνει στην εφαρμογή on-demand. Σε επίπεδο λογισμικού, χρησιμοποιούνται
+              2 εφαρμογές Python. Μια εφαρμογή μέσω MQTT ζητάει τα δεδομένα από το TTN και τα αποθηκεύει σε βάση PostgreSQL. Και η 2η εφαρμογή τα διαβάζει από τη βάση και μέσω ενός web service, τα
+              διαθέτει προς τον χρήστη παρέχοντας διεπαφές και streaming διαγράμματα.<br></p><br>
+
+          <p><i class="fa fa-users" style="font-size:18px;color:black" aria-hidden="true"></i><strong> Υπεύθυνοι ανάπτυξης υπηρεσίας 'Environmental Sensing Service - Υπηρεσία ανίχνευσης φωτιάς σε δασικές περιοχές': </strong>
+              <br>Κώστας Λαβός, Προπτυχιακός Φοιτητής(<a href="mailto:icsd12099@aegean.gr">icsd12099@icsd.aegean.gr</a>)
+          <br>Κωνσταντίνος Μαλιάτσος, Επίκουρος Καθηγητής ανεπιστημίου Αιγαίου (<a href="mailto:kmaliat@aegean.gr">kmaliat@aegean.gr</a>)</p><br>
+      </div>
+		</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min_v2.js"></script>
+    <script src="js/main_v2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Fire Detection Service - Live Streaming Διαγράμματα</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <style>
+
+                /* Style for the search form */
+        .search-form {
+            margin: 20px;
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            width: 900px; /* Adjust the width as needed */
+        }
+
+        /* Style for the search button */
+        .search-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style for the input fields */
+        .search-input {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+                 .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="css/style_v2.css">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Include flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+       <!-- Include Plotly library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Include Bootstrap library -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+	  		<h1><a href="/menu" class="logo">Fire Detection Service - Live Streaming Διαγράμματα</a></h1>
+          <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="/menu"><span class="fa fa-home mr-3"></span> Αρχική Σελίδα</a>
+          </li>
+          <li>
+              <a href="/measurements"><span class="fa fa-sticky-note mr-3"></span> Μετρήσεις CO2, O2, Humidity, NO2</a>
+          </li>
+             <li>
+              <a href="/streaming"><span class="fa fa-sticky-note mr-3"></span> Παρακολούθηση σε πραγματικό χρόνο: CO2, O2, Humidity, NO2</a>
+          </li>
+          <li>
+            <a href="/information"><span class="fa fa-paper-plane mr-3"></span> Πληροφορίες Εφαρμογής</a>
+          </li>
+            <li>
+            <a href="/logout"><span class="fa fa-paper-plane mr-3"></span> Αποσύνδεση (Logout)</a>
+          </li>
+        </ul>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Fire Detection Service - Live Streaming Διαγράμματα</h2>
+          <p>Δεδομένα αισθητήρων <strong><em>2024</em></strong> </p><br><br>
+                  <div style="position: relative; left: 100px;" id="chart1">
+                      <p>To διάγραμμα απεικονίζει τις τιμές διοξειδίου του άνθρακα, CO2.</p>
+                  </div><br><br><br><br>
+           <div style="position: relative; left: 100px;" id="chart2">
+                      <p>To διάγραμμα απεικονίζει τις τιμές υγρασίας.</p>
+                  </div><br><br><br><br>
+           <div style="position: relative; left: 100px;" id="chart3">
+                      <p>To διάγραμμα απεικονίζει τις τιμές διοξειδίου του οξυγόνου, O2.</p>
+                  </div><br><br><br><br>
+            <div style="position: relative; left: 100px;" id="chart4">
+                      <p>To διάγραμμα απεικονίζει τις τιμές αζώτου, NO2.</p>
+                  </div><br><br><br>
+          <div style="position: relative;  left: 100px;" class="search-form">
+        <form action="/search" method='POST'>
+            <!-- Start time input -->
+            <label for="start-time">Start Time:</label>
+            <input type="datetime-local" id="start-time" name="start-time" class="search-input">
+
+
+            <!-- End time input -->
+            <label for="end-time">End Time:</label>
+            <input type="datetime-local" id="end-time" name="end-time" class="search-input">
+
+            <!-- Search button -->
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+    </div>
+      </div>
+        </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min_v2.js"></script>
+    <script src="js/main_v2.js"></script>
+  </body>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+    var graph1 = {{graphJSON1 | safe}};
+    Plotly.plot('chart1',graph1,{});
+</script>
+<script type="text/javascript">
+    var graph2 = {{graphJSON2 | safe}};
+    Plotly.plot('chart2',graph2,{});
+</script>
+<script type="text/javascript">
+    var graph3 = {{graphJSON3 | safe}};
+    Plotly.plot('chart3',graph3,{});
+</script>
+<script type="text/javascript">
+    var graph4 = {{graphJSON4 | safe}};
+    Plotly.plot('chart4',graph4,{});
+</script>
+</html>
